@@ -1,3 +1,8 @@
+// ─────────────────────────────────────────────────────────────
+// FasterEdge 开源项目
+// Github: https://github.com/FasterEdge
+// Gitee:  https://gitee.com/FasterEdge
+// ─────────────────────────────────────────────────────────────
 // Command example 是 FasterEdge 主项目生态的完整入门示例（demo）。
 //
 // 它演示如何通过公共 API 使用 github.com/FasterEdge/FasterEdge：
