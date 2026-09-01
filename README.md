@@ -1,29 +1,52 @@
 <div align="center">
   <img src="https://avatars.githubusercontent.com/u/245985800?s=200&v=4" alt="logo" width="100" />
   <h2>Example</h2>
-  <h3>FasterEdge 示例资源入口与预留仓库</h3>
+  <h3>FasterEdge 主项目完整使用示例（Go Demo）</h3>
 </div>
 
 ### 一、项目简介
 
-- **用途**: 作为 FasterEdge 生态中示例代码、演示资源和使用说明的统一入口与预留仓库。
-- **当前状态**: 仓库目前仅包含 `LICENSE`、`.gitignore` 与本说明，尚未提供可运行示例、源码、构建配置或发布产物。
-- **内容边界**: 本说明不虚构尚未提交的示例；实际可用内容应以仓库后续新增文件为准。
+- **用途**: 基于 [FasterEdge](https://github.com/FasterEdge/FasterEdge) 主项目的**完整可运行示例**，展示如何初始化 Atom、挂载内置能力、调用各能力命令、执行鉴权命令链路以及管理组件生命周期。
+- **依赖版本**: `github.com/FasterEdge/FasterEdge v1.0.20260901`（见 `go.mod`）
 
-### 二、计划收录范围
+### 二、快速开始
 
-- **最小示例**: 展示 FasterEdge 组件或相关项目的最小可运行用法。
-- **场景示例**: 记录边缘节点、数据交互、设备接入等可复现演示。
-- **配套说明**: 为每个示例提供依赖、构建、运行、预期结果和适用范围。
+```bash
+# 1. 拉取依赖（含主项目 FasterEdge）
+go mod download
 
-### 三、维护原则
+# 2. 直接运行 demo
+go run .
 
-- **真实性**: 仅在示例代码、配置和验证步骤实际提交后更新功能说明。
-- **可复现性**: 新增示例应包含明确的环境要求、执行步骤和验证方法。
-- **安全性**: 不提交密钥、令牌、真实生产地址或其他敏感配置；示例配置使用无效占位值。
-- **组织方式**: 每个独立示例应使用清晰的子目录，并在目录内提供针对性文档。
+# 3. 编译为本地可执行文件
+go build .
+```
 
-### 四、许可证
+### 三、Demo 演示内容
+
+| 能力 | 命令 | 说明 |
+|---|---|---|
+| **TimeAbility** | `get_time` | 获取当前时间快照（来源 / 时间） |
+| **NetMapAbility** | `register_peer` / `list_peers` | 注册对等节点并查询网络拓扑 |
+| **OneKeyAbility** | `issue_token` / `verify_token` | 为对等节点签发短期访问令牌并校验 |
+| **CmdAbility** | `set_allowlist` / `run` | 配置命令执行白名单并运行受控命令 |
+| **鉴权链路** | `AuthenticatedCommand` | 用 OneKey 凭证走安全边界调用命令；篡改签名会被拒绝 |
+| **生命周期** | `RunAtom` / `CloseAtom` | 运行全部 Runner 能力，取消后优雅关闭 |
+
+### 四、跨平台自动打包
+
+仓库配置了 GitHub Actions（`.github/workflows/release.yml`）：
+
+- 触发方式：推送 `v*` tag 或手动 `workflow_dispatch`
+- 构建矩阵：**Windows / macOS / Linux × amd64 / arm64**，共 6 个平台
+- 发布方式：自动打包 `tar.gz`（Unix）与 `zip`（Windows）并发布到 GitHub Release
+
+```bash
+# 打 tag 触发自动打包发布
+git tag v1.0.0 && git push origin v1.0.0
+```
+
+### 五、许可证
 
 - **许可协议**: 仓库根目录 `LICENSE` 为 Apache License 2.0。
-- **适用说明**: 后续新增内容应保留必要的版权与归属声明；第三方内容如有独立许可，应在对应目录中明确标注。
+- **适用说明**: 示例源码保留 FasterEdge 组织归属与版权声明。

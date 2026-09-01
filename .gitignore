@@ -39,3 +39,21 @@ temp/
 
 # Git worktrees
 .worktrees/
+# ============================================
+# Go 构建产物与依赖
+# ============================================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.[568]out
+*.out
+*.test
+*.prof
+*.tar.gz
+*.zip
+/tmp/
+/dist/
+/example
+/fasteredge-example

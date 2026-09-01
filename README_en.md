@@ -1,29 +1,52 @@
 <div align="center">
   <img src="https://avatars.githubusercontent.com/u/245985800?s=200&v=4" alt="logo" width="100" />
   <h2>Example</h2>
-  <h3>FasterEdge Example Resource Entry and Reserved Repository</h3>
+  <h3>Complete FasterEdge Usage Example (Go Demo)</h3>
 </div>
 
 ### 1. Introduction
 
-- **Purpose**: Serves as the unified entry point and reserved repository for example code, demonstrations and usage guides in the FasterEdge ecosystem.
-- **Current Status**: The repository currently contains only `LICENSE`, `.gitignore` and this documentation; no runnable examples, source code, build configuration or release artifacts are available yet.
-- **Content Boundary**: This document does not claim examples that have not been committed; available material must be determined from files added to the repository later.
+- **Purpose**: A **complete runnable example** built on the [FasterEdge](https://github.com/FasterEdge/FasterEdge) main project. It demonstrates initializing an Atom, mounting built-in abilities, invoking ability commands, executing the authenticated-command path, and managing the component lifecycle.
+- **Dependency**: `github.com/FasterEdge/FasterEdge v1.0.20260901` (see `go.mod`)
 
-### 2. Intended Scope
+### 2. Quick Start
 
-- **Minimal Examples**: Demonstrate the smallest runnable usage of FasterEdge components or related projects.
-- **Scenario Examples**: Provide reproducible demonstrations for edge nodes, data exchange and device integration.
-- **Supporting Guides**: Document dependencies, build and run steps, expected results and applicability for each example.
+```bash
+# 1. Fetch dependencies (including the FasterEdge main project)
+go mod download
 
-### 3. Maintenance Principles
+# 2. Run the demo
+go run .
 
-- **Accuracy**: Describe functionality only after the corresponding example code, configuration and verification steps have been committed.
-- **Reproducibility**: Every new example should state its environment requirements, execution procedure and validation method.
-- **Security**: Do not commit secrets, tokens, real production endpoints or other sensitive configuration; use non-functional placeholder values in sample configuration.
-- **Organization**: Place each independent example in a clearly named subdirectory with focused documentation inside it.
+# 3. Build a native executable
+go build .
+```
 
-### 4. License
+### 3. What the Demo Shows
+
+| Ability | Command | Description |
+|---|---|---|
+| **TimeAbility** | `get_time` | Fetch the current time snapshot (source / time) |
+| **NetMapAbility** | `register_peer` / `list_peers` | Register a peer and query the network topology |
+| **OneKeyAbility** | `issue_token` / `verify_token` | Issue a short-lived access token for a peer and verify it |
+| **CmdAbility** | `set_allowlist` / `run` | Configure a command-execution allowlist and run a controlled command |
+| **Auth path** | `AuthenticatedCommand` | Invoke commands through the security boundary with a OneKey credential; tampered signatures are rejected |
+| **Lifecycle** | `RunAtom` / `CloseAtom` | Run all Runner abilities, then shut down gracefully on cancellation |
+
+### 4. Cross-Platform Auto-Build
+
+The repository ships a GitHub Actions workflow (`.github/workflows/release.yml`):
+
+- Trigger: push a `v*` tag or manual `workflow_dispatch`
+- Build matrix: **Windows / macOS / Linux × amd64 / arm64** (6 targets)
+- Release: packages `tar.gz` (Unix) and `zip` (Windows) and publishes them to a GitHub Release
+
+```bash
+# Tag to trigger the automated build and release
+git tag v1.0.0 && git push origin v1.0.0
+```
+
+### 5. License
 
 - **License**: The root `LICENSE` file contains the Apache License 2.0.
-- **Application**: Future content should retain required copyright and attribution notices; third-party material with separate terms should identify them in its own directory.
+- **Application**: Example source retains the FasterEdge organization attribution and copyright notice.
