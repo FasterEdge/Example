@@ -7,7 +7,7 @@
 ### 一、项目简介
 
 - **用途**: 基于 [FasterEdge](https://github.com/FasterEdge/FasterEdge) 主项目的**完整可运行示例**，展示如何初始化 Atom、挂载内置能力、调用各能力命令、执行鉴权命令链路以及管理组件生命周期。
-- **依赖版本**: `github.com/FasterEdge/FasterEdge v1.0.20260901`（见 `go.mod`）
+- **依赖版本**: `github.com/FasterEdge/FasterEdge v1.0.20261022`（见 `go.mod`）
 
 ### 二、快速开始
 
