@@ -7,7 +7,7 @@
 ### 1. Introduction
 
 - **Purpose**: A **complete runnable example** built on the [FasterEdge](https://github.com/FasterEdge/FasterEdge) main project. It demonstrates initializing an Atom, mounting built-in abilities, invoking ability commands, executing the authenticated-command path, and managing the component lifecycle.
-- **Dependency**: `github.com/FasterEdge/FasterEdge v1.0.20260913` (see `go.mod`)
+- **Dependency**: `github.com/FasterEdge/FasterEdge v1.0.20261022` (see `go.mod`)
 
 ### 2. Quick Start
 

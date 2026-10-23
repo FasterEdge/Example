@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v7
     - uses: actions/setup-go@v5
       with:
-        go-version: '1.25'
+        go-version: '1.26'
     - name: '静态检查 go vet'
       run: go vet ./...
     - name: '单元测试'
