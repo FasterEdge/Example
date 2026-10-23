@@ -42,7 +42,7 @@ jobs:
         else
           tar czf ../fasteredge-example-${{ matrix.target }}.tar.gz fasteredge-example
         fi
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v7
       with:
         name: 'fasteredge-example-${{ matrix.target }}'
         path: '${{ github.workspace }}/fasteredge-example-${{ matrix.target }}.*'
