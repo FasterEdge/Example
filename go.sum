@@ -1,5 +1,5 @@
-github.com/FasterEdge/FasterEdge v1.0.20261116 h1:0JyJhN5cEclR2MQlBEFp/Zflj6CYMS6pOGQwX/1pYzY=
-github.com/FasterEdge/FasterEdge v1.0.20261116/go.mod h1:JzJS0xPw1VlNmrogad2+EttaDyNIgRXVzjCX4CtAQTQ=
+github.com/FasterEdge/FasterEdge v1.0.20261124 h1:XdDnmihPGZIv4Vdcw/PCg/kF9D/2917QbfhAMGbl6uo=
+github.com/FasterEdge/FasterEdge v1.0.20261124/go.mod h1:JzJS0xPw1VlNmrogad2+EttaDyNIgRXVzjCX4CtAQTQ=
 github.com/beevik/ntp v1.6.0 h1:bW359Vvw6bicGhKsVi+ZDLMsMYzb2ohUpLaF/Juv0k8=
 github.com/beevik/ntp v1.6.0/go.mod h1:VTAbDFySkuc8cQiAYHhXslAHjJdenICebskhYqBWC4k=
 github.com/stretchr/testify v1.12.1 h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWDWE=
